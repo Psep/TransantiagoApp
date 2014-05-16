@@ -35,6 +35,9 @@
 		<link rel="stylesheet" href="style/util.css">
 
 		<link rel="stylesheet" href="style/webapp.css" />
+		
+		<!-- Mapas -->
+		<link rel="stylesheet" href="style/leaflet.css" />
 	</head>
 	<body>
 		<section id="index" data-position="current">
@@ -50,10 +53,10 @@
 				<nav>
 					<ul>
 						<li>
-							<a id="btn-index" href="#"> Busca el Bus </a>
+							<a id="btn-index" href="#"> Busca el bus </a>
 						</li>
 						<li>
-							<a id="btn-buscaParadero" href="#"> Busca Paraderos </a>
+							<a id="btn-buscaParadero" href="#"> Busca tu paradero </a>
 						</li>
 						<li>
 							<a id="btn-consultaBip" href="#"> Mi saldo Bip! </a>
@@ -76,7 +79,7 @@
 				</header>
 				<article class="content scrollable header">
 					<header>
-						<h2>Busca el Bus</h2>
+						<h2>Busca el bus</h2>
 					</header>
 					<form class="paddings" action="#">
 						<p>
@@ -107,7 +110,7 @@
 		<section role="region" id="listBusqueda" data-position="right">
 			<header class="fixed">
 				<a id="btn-listBusqueda-back" href="#"><span class="icon icon-back">back</span></a>
-				<h1>Resultado de tu búsqueda</h1>
+				<h1>Resultado de la búsqueda</h1>
 			</header>
 			<article class="content scrollable header">
 				<section data-type="list">
@@ -122,11 +125,11 @@
 		<section id="buscaParadero" role="region" data-position="right">
 			<header class="fixed">
 				<a id="btn-buscaParadero-back" href="#"><span class="icon icon-back">back</span></a>
-				<h1>Busca el paradero</h1>
+				<h1>Busca tu paradero</h1>
 			</header>
 			<article class="content scrollable header">
-				<form class="paddings">
-					asdasd
+				<form id="frm-mapParadero" action="#">
+					<!-- div del mapa de paraderos -->
 				</form>
 			</article>
 		</section>
@@ -184,9 +187,11 @@
 
 		<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
 		<script type="text/javascript" src="js/jquery.blockUI.js"></script>
+		<script type="text/javascript" src="js/leaflet.js"></script>
 		<script type="text/javascript" defer src="js/status.js"></script>
 		<script type="text/javascript" defer src="js/seekbars.js"></script>
 		<script type="text/javascript" src="js/ParaderoService.js"></script>
+		<script type="text/javascript" src="js/MapService.js"></script>
 		<script type="text/javascript" defer src="js/app.js"></script>
 	</body>
 </html>

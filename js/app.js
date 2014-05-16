@@ -30,6 +30,7 @@ document.querySelector('#btn-listBusqueda-back').addEventListener('click', funct
  * Mapa paraderos
  */
 document.querySelector('#btn-buscaParadero').addEventListener('click', function() {
+	loadMapParaderos(-33.443707, -70.650412);
 	document.querySelector('#buscaParadero').className = 'current';
 	document.querySelector('[data-position="current"]').className = 'left';
 });
