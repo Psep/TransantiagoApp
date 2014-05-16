@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no" />
+		<title>TransantiagoApp</title>
+
+		<!-- Building blocks -->
+		<link rel="stylesheet" href="style/action_menu.css">
+		<link rel="stylesheet" href="style/buttons.css">
+		<link rel="stylesheet" href="style/confirm.css">
+		<link rel="stylesheet" href="style/edit_mode.css">
+		<link rel="stylesheet" href="style/headers.css">
+		<link rel="stylesheet" href="style/input_areas.css">
+		<link rel="stylesheet" href="style/status.css">
+		<link rel="stylesheet" href="style/switches.css">
+		<link rel="stylesheet" href="style/drawer.css">
+		<link rel="stylesheet" href="style/lists.css">
+		<link rel="stylesheet" href="style/progress_activity.css">
+		<link rel="stylesheet" href="style/scrolling.css">
+		<link rel="stylesheet" href="style/seekbars.css">
+		<link rel="stylesheet" href="style/tabs.css">
+		<link rel="stylesheet" href="style/toolbars.css">
+
+		<!-- Icons -->
+		<link rel="stylesheet" href="icons/styles/action_icons.css">
+		<link rel="stylesheet" href="icons/styles/media_icons.css">
+		<link rel="stylesheet" href="icons/styles/comms_icons.css">
+		<link rel="stylesheet" href="icons/styles/settings_icons.css">
+
+		<!-- Transitions -->
+		<link rel="stylesheet" href="style/transitions.css">
+
+		<!-- Util CSS: some extra tricks -->
+		<link rel="stylesheet" href="style/util.css">
+
+		<link rel="stylesheet" href="style/webapp.css" />
+	</head>
+	<body>
+		<section id="index" data-position="current">
+
+			<!-- Menú -->
+			<section data-type="sidebar">
+				<header>
+					<menu type="toolbar">
+						<a href="#">Cerrar</a>
+					</menu>
+					<h1>Menú</h1>
+				</header>
+				<nav>
+					<ul>
+						<li>
+							<a id="btn-index" href="#"> Busca el Bus </a>
+						</li>
+						<li>
+							<a id="btn-buscaParadero" href="#"> Busca Paraderos </a>
+						</li>
+						<li>
+							<a id="btn-consultaBip" href="#"> Mi saldo Bip! </a>
+						</li>
+						<li>
+							<a id="btn-centrosBip" href="#"> Centros Bip! </a>
+						</li>
+						<li>
+							<a id="btn-terminosCondiciones" href="#"> Términos y Condiciones </a>
+						</li>
+					</ul>
+				</nav>
+			</section>
+
+			<section id="drawer" role="region">
+				<header class="fixed">
+					<a href="#"><span class="icon icon-menu">hide sidebar</span></a>
+					<a href="#drawer"><span class="icon icon-menu">show sidebar</span></a>
+					<h1>TransantiagoApp</h1>
+				</header>
+				<article class="content scrollable header">
+					<header>
+						<h2>Busca el Bus</h2>
+					</header>
+					<form class="paddings" action="#">
+						<p>
+							Paradero:
+						</p>
+						<p>
+							<input id="txtParadero" type="text" placeholder="Ej: PD171" maxlength="6" />
+						</p>
+						<p>
+							Bus:
+						</p>
+						<p>
+							<input id="txtBus" type="text" placeholder="Ej: 107" maxlength="4" />
+						</p>
+						<p>
+							<button id="btn-BuscarBus">
+								Buscar
+							</button>
+						</p>
+					</form>
+				</article>
+			</section>
+			<!-- end drawer -->
+		</section>
+		<!-- end index -->
+
+		<!-- Lista la búsqueda del paradero -->
+		<section role="region" id="listBusqueda" data-position="right">
+			<header class="fixed">
+				<a id="btn-listBusqueda-back" href="#"><span class="icon icon-back">back</span></a>
+				<h1>Resultado de tu búsqueda</h1>
+			</header>
+			<article class="content scrollable header">
+				<section data-type="list">
+					<div id="div-dataParaderos">
+						
+					</div>
+				</section>
+			</article>
+		</section>
+
+		<!-- Mapa de paraderos -->
+		<section id="buscaParadero" role="region" data-position="right">
+			<header class="fixed">
+				<a id="btn-buscaParadero-back" href="#"><span class="icon icon-back">back</span></a>
+				<h1>Busca el paradero</h1>
+			</header>
+			<article class="content scrollable header">
+				<form class="paddings">
+					asdasd
+				</form>
+			</article>
+		</section>
+		
+		<!-- ConsultaBip! -->
+		<section id="consultaBip" role="region" data-position="right">
+			<header class="fixed">
+				<a id="btn-consultaBip-back" href="#"><span class="icon icon-back">back</span></a>
+				<h1>Mi Saldo Bip!</h1>
+			</header>
+			<article class="content scrollable header">
+				<form class="paddings" action="#">
+					<p>
+						N° de Tarjeta:
+					</p>
+					<p>
+						<input id="txtTarjetaBip" type="text" placeholder="Ej: 12345" maxlength="15" type="number" />
+					</p>
+					<p>
+						<button id="btn-BuscarConsultaBip">
+							Consultar
+						</button>
+					</p>
+				</form>
+			</article>
+		</section>
+		
+		<!-- Mapa de Bip! -->
+		<section id="centrosBip" role="region" data-position="right">
+			<header class="fixed">
+				<a id="btn-centrosBip-back" href="#"><span class="icon icon-back">back</span></a>
+				<h1>Centros Bip!</h1>
+			</header>
+			<article class="content scrollable header">
+				<form class="paddings">
+					qweqweqweqweq
+				</form>
+			</article>
+		</section>
+		
+		<!-- Términos y Condiciones -->
+		<section id="terminosCondiciones" role="region" data-position="right">
+			<header class="fixed">
+				<a id="btn-terminosCondiciones-back" href="#"><span class="icon icon-back">back</span></a>
+				<h1>Términos y Condiciones</h1>
+			</header>
+			<article class="content scrollable header">
+				<form class="paddings">
+					<p>
+						blablabla bla blablabla
+					</p>
+				</form>
+			</article>
+		</section>
+
+		<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+		<script type="text/javascript" src="js/jquery.blockUI.js"></script>
+		<script type="text/javascript" defer src="js/status.js"></script>
+		<script type="text/javascript" defer src="js/seekbars.js"></script>
+		<script type="text/javascript" src="js/ParaderoService.js"></script>
+		<script type="text/javascript" defer src="js/app.js"></script>
+	</body>
+</html>
