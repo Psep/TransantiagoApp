@@ -52,31 +52,13 @@ function successCallback(ajaxResponse) {
 		return;
 	}
 	
-	var html = "<header style='font-size: 0.9em;'>";
+	var html = "<header style='font-size: 0.95em;'>";
 	html += dataProcess['header'];
 	html += "</header>";
-	html += "<header style='font-size: 0.9em;'>";
+	html += "<header style='font-size: 0.95em;'>";
 	html += dataProcess['info'];
 	html += "</header>";
 	html += dataProcess['dataList'];
 	
 	document.getElementById('div-dataParaderos').innerHTML = html;
-}
-
-/**
- * @param ajaxResponse
- * @return ajaxResponse
- */
-function processObject(ajaxResponse) {
-	if ( typeof ajaxResponse == "string")
-		ajaxResponse = $.parseJSON(ajaxResponse);
-	return ajaxResponse;
-}
-
-/**
- * Función que es llamada para el
- * error de la transacción ajax.
- */
-function errorCallback() {
-	alert("No existe información asociada, revise");
 }

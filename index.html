@@ -128,7 +128,7 @@
 				<h1>Busca tu paradero</h1>
 			</header>
 			<article class="content scrollable header">
-				<form id="frm-mapParadero" action="#">
+				<form id="frm-mapParaderos" action="#">
 					<!-- div del mapa de paraderos -->
 				</form>
 			</article>
@@ -142,17 +142,9 @@
 			</header>
 			<article class="content scrollable header">
 				<form class="paddings" action="#">
-					<p>
-						N° de Tarjeta:
-					</p>
-					<p>
-						<input id="txtTarjetaBip" type="text" placeholder="Ej: 12345" maxlength="15" type="number" />
-					</p>
-					<p>
-						<button id="btn-BuscarConsultaBip">
-							Consultar
-						</button>
-					</p>
+					<div id="div-consultaBip">
+						<!-- Contenido de consulta bip! -->
+					</div>
 				</form>
 			</article>
 		</section>
@@ -164,8 +156,8 @@
 				<h1>Centros Bip!</h1>
 			</header>
 			<article class="content scrollable header">
-				<form class="paddings">
-					qweqweqweqweq
+				<form id="frm-mapCentrosBip" action="#">
+					<!-- div del mapa de centros -->
 				</form>
 			</article>
 		</section>
@@ -187,11 +179,15 @@
 
 		<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
 		<script type="text/javascript" src="js/jquery.blockUI.js"></script>
+		<script type="text/javascript" src="js/ajaxUtil.js"></script>
 		<script type="text/javascript" src="js/leaflet.js"></script>
 		<script type="text/javascript" defer src="js/status.js"></script>
 		<script type="text/javascript" defer src="js/seekbars.js"></script>
+		<script type="text/javascript" src="js/data/paraderos.json"></script>
+		<script type="text/javascript" src="js/data/bips.json"></script>
 		<script type="text/javascript" src="js/ParaderoService.js"></script>
 		<script type="text/javascript" src="js/MapService.js"></script>
+		<script type="text/javascript" src="js/BipService.js"></script>
 		<script type="text/javascript" defer src="js/app.js"></script>
 	</body>
 </html>
