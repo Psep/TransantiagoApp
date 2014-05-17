@@ -60,7 +60,7 @@ function getConsulta() {
 				dataType : 'json',
 				url : 'http://www.psep.cl/api/Bip.php?',
 				data : data,
-				success : successCallback,
+				success : successCallbackBip,
 				error : errorCallback
 
 			});
@@ -79,7 +79,7 @@ function getConsulta() {
  *
  * @param {Object} ajaxResponse
  */
-function successCallback(ajaxResponse) {
+function successCallbackBip(ajaxResponse) {
 	var dataProcess = processObject(ajaxResponse);
 
 	if (!dataProcess) {

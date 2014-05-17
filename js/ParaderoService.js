@@ -31,7 +31,7 @@ function getParaderoBusData(paradero, bus){
 			dataType : 'json',
 			url : 'http://www.psep.cl/api/ParaderoService.php?',
 			data : data,
-			success : successCallback,
+			success : successCallbackParaderos,
 			error : errorCallback
 		});
 		
@@ -44,7 +44,7 @@ function getParaderoBusData(paradero, bus){
 /**
  * @param ajaxResponse
  */
-function successCallback(ajaxResponse) {
+function successCallbackParaderos(ajaxResponse) {
 	var dataProcess = processObject(ajaxResponse);
 
 	if (!dataProcess) {
