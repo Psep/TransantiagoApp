@@ -3,21 +3,25 @@
  */
 
 /**
- * 
+ * Carga el mapa de paraderos
  */
 function loadMapParaderos() {
 	getGeolocation(true);
 }
 
 /**
- * 
+ * Carga el mapa de Bip!
  */
 function loadMapBip() {
 	getGeolocation(false);
 }
 
 /**
- * @param Boolean
+ * Activa el servicio de geolocalización
+ * obteniendo la latitud y longitud
+ * del dispositivo.
+ * 
+ * @param Boolean isParadero
  */
 function getGeolocation(isParadero) {
 	if (!navigator.geolocation) {
@@ -42,10 +46,10 @@ function getGeolocation(isParadero) {
 }
 
 /**
- * 
- * @param {Object} lat
- * @param {Object} lon
- * @param {Object} isParadero
+ * Carga el mapa según los parámetros
+ * @param Float lat
+ * @param Float lon
+ * @param Boolean isParadero
  */
 function loadMap(lat, lon, isParadero) {
 	var divId = '';
