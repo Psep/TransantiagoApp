@@ -2,24 +2,63 @@
  * @author psep
  */
 
+/**
+ * 
+ */
 function loadMapParaderos() {
-	var lat = -33.449049;
-	var lon = -70.654840;
-
-	loadMap(lat, lon, true);
+	getGeolocation(true);
 }
 
+/**
+ * 
+ */
 function loadMapBip() {
-	var lat = -33.449049;
-	var lon = -70.654840;
-
-	loadMap(lat, lon, false);
+	getGeolocation(false);
 }
 
+/**
+ * @param Boolean
+ */
+function getGeolocation(isParadero) {
+	if (!navigator.geolocation) {
+		alert('Existen problemas de geolocalización con tu dispositivo');
+		return;
+	}
+
+	function success(position) {
+		var latitude = position.coords.latitude;
+		var longitude = position.coords.longitude;
+		loadMap(latitude, longitude, isParadero);
+	};
+
+	function error() {
+		loadMap(null, null, isParadero);
+		alert("Localización desconocida");
+	};
+
+	loadMap(null, null, isParadero);
+
+	navigator.geolocation.getCurrentPosition(success, error);
+}
+
+/**
+ * 
+ * @param {Object} lat
+ * @param {Object} lon
+ * @param {Object} isParadero
+ */
 function loadMap(lat, lon, isParadero) {
 	var divId = '';
 	var icon = '';
 	var icon48 = '';
+	var valida = true;
+	
+	// Valida coordenadas
+	if (lat == null || lon == null) {
+		lat = -33.449049;
+		lon = -70.654840;
+		valida = false;
+	}
 
 	// Valida si es paradero o centro Bip!
 	if (isParadero == true) {
@@ -48,54 +87,57 @@ function loadMap(lat, lon, isParadero) {
 		subdomains : ['otile1', 'otile2', 'otile3', 'otile4']
 	}).addTo(map);
 
-	// Se crea la instancia del ícono parametrizado
-	var myIcon = L.icon({
-		iconUrl : 'images/markers/' + icon,
-		iconRetinaUrl : 'images/markers/' + icon48,
-		iconSize : [24, 20],
-		iconAnchor : [6, 13],
-		popupAnchor : [0, -14]
-	});
-
-	// Se crea la instancia del marcador por defecto
-	var myMarker = L.icon({
-		iconUrl : 'images/markers/pin24.png',
-		iconRetinaUrl : 'images/markers/pin48.png',
-		iconSize : [29, 24],
-		iconAnchor : [9, 21],
-		popupAnchor : [0, -14]
-	});
-
-	L.marker([lat, lon], {
-		icon : myMarker
-	}).addTo(map);
-
-	// Valores de límites de coordenadas
-	var arriba = lat + 0.005;
-	var abajo = lat - 0.005;
-	var derecha = lon + 0.005;
-	var izquierda = lon - 0.005;
-
-	// Se crean los marcadores dinámicos para paraderos
-	if (isParadero == true) {
-		for (var i = 0; i < paraderos.length; ++i) {
-			if (paraderos[i].lat >= abajo && paraderos[i].lat <= arriba && paraderos[i].lon >= izquierda && paraderos[i].lon <= derecha) {
-
-				var test = "loadParadero('" + paraderos[i].id + "', '', true);";
-
-				L.marker([paraderos[i].lat, paraderos[i].lon], {
-					icon : myIcon
-				}).bindPopup('<div id="btn-idCentroBip" onclick="' + test + '">' + paraderos[i].name + '</div>').addTo(map);
-			}
-		}
+	// Valida marcadores
+	if (valida == true) {
+		// Se crea la instancia del ícono parametrizado
+		var myIcon = L.icon({
+			iconUrl : 'images/markers/' + icon,
+			iconRetinaUrl : 'images/markers/' + icon48,
+			iconSize : [24, 20],
+			iconAnchor : [6, 13],
+			popupAnchor : [0, -14]
+		});
 		
-	// Se crean los marcadores dinámicos para centros bip!	
-	} else {
-		for (var i = 0; i < bips.length; ++i) {
-			if (bips[i].lat >= abajo && bips[i].lat <= arriba && bips[i].lon >= izquierda && bips[i].lon <= derecha) {
-				L.marker([bips[i].lat, bips[i].lon], {
-					icon : myIcon
-				}).bindPopup(bips[i].name).addTo(map);
+		// Se crea la instancia del marcador por defecto
+		var myMarker = L.icon({
+			iconUrl : 'images/markers/pin24.png',
+			iconRetinaUrl : 'images/markers/pin48.png',
+			iconSize : [29, 24],
+			iconAnchor : [9, 21],
+			popupAnchor : [0, -14]
+		});
+
+		L.marker([lat, lon], {
+			icon : myMarker
+		}).addTo(map);
+
+		// Valores de límites de coordenadas
+		var arriba = lat + 0.005;
+		var abajo = lat - 0.005;
+		var derecha = lon + 0.005;
+		var izquierda = lon - 0.005;
+		
+		// Se crean los marcadores dinámicos para paraderos
+		if (isParadero == true) {
+			for (var i = 0; i < paraderos.length; ++i) {
+				if (paraderos[i].lat >= abajo && paraderos[i].lat <= arriba && paraderos[i].lon >= izquierda && paraderos[i].lon <= derecha) {
+
+					var test = "loadParadero('" + paraderos[i].id + "', '', true);";
+
+					L.marker([paraderos[i].lat, paraderos[i].lon], {
+						icon : myIcon
+					}).bindPopup('<div id="btn-idCentroBip" onclick="' + test + '">' + paraderos[i].name + '</div>').addTo(map);
+				}
+			}
+		
+		// Se crean los marcadores dinámicos para centros bip!	
+		} else {
+			for (var i = 0; i < bips.length; ++i) {
+				if (bips[i].lat >= abajo && bips[i].lat <= arriba && bips[i].lon >= izquierda && bips[i].lon <= derecha) {
+					L.marker([bips[i].lat, bips[i].lon], {
+						icon : myIcon
+					}).bindPopup(bips[i].name).addTo(map);
+				}
 			}
 		}
 	}
